@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área de Triângulo</title>
+    <style>
+
+        * {
+            text-align: center;
+            margin: 0;
+            padding: 0%;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff;
+        }
+        form {
+            padding-top: 200px;
+            max-width: 300px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            color: #fff;
+        }
+        input {
+            border-radius: 8px;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        button {
+            background:tomato ;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        p{
+            margin-top: 30px;
+            color: #fff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <form id="triangulo-form">
+        <label for="base">Base do Triângulo:</label>
+        <input type="number" id="base" placeholder="Insira a base" required>
+        <label for="altura">Altura do Triângulo:</label>
+        <input type="number" id="altura" placeholder="Insira a altura" required>
+        <button type="button" onclick="calcularAreaETipo()">Calcular Área e Tipo</button>
+    </form>
+    <p>Área do Triângulo: <span id="resultado"></span></p>
+    <p>Tipo de Triângulo: <span id="tipo"></span></p>
+
+    <script>
+
+        function calcularAreaETipo() {
+            const base = parseFloat(document.getElementById('base').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const area = (base * altura) / 2;
+            document.getElementById('resultado').textContent = area.toFixed(2);
+
+            if (base === altura) {
+                document.getElementById('tipo').textContent = 'Triângulo Equilátero';
+            } else if (base !== altura) {
+                document.getElementById('tipo').textContent = 'Triângulo Isósceles';
+            } else {
+                document.getElementById('tipo').textContent = 'Triângulo Escaleno';
+            }
+        }
+    </script>
+</body>
+</html>
